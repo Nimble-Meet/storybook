@@ -1,23 +1,24 @@
-const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 
 module.exports = {
   stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    "@storybook/addon-interactions", 
+    "@storybook/addon-interactions",
   ],
   framework: "@storybook/react",
   core: {
-    builder: 'webpack5',
+    builder: "webpack5",
   },
   typescript: {
     check: false,
     checkOptions: {},
-    reactDocgen: 'react-docgen-typescript',
+    reactDocgen: "react-docgen-typescript",
     reactDocgenTypescriptOptions: {
       shouldExtractLiteralValuesFromEnum: true,
-      propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
+      propFilter: (prop) =>
+        prop.parent ? !/node_modules/.test(prop.parent.fileName) : true,
     },
   },
   webpackFinal: async (config) => {
@@ -31,28 +32,28 @@ module.exports = {
 
     // disable whatever is already set to load SVGs
     config.module.rules
-      .filter(rule => rule.test.test('.svg'))
-      .forEach(rule => rule.exclude = /\.svg$/i);
+      .filter((rule) => rule.test.test(".svg"))
+      .forEach((rule) => (rule.exclude = /\.svg$/i));
 
     // add SVGR instead
     config.module.rules.push({
       test: /\.svg$/,
       use: [
         {
-          loader: '@svgr/webpack'
+          loader: "@svgr/webpack",
         },
         {
-          loader: 'file-loader',
+          loader: "file-loader",
           options: {
-            name: 'static/media/[path][name].[ext]'
-          }
-        }
+            name: "static/media/[path][name].[ext]",
+          },
+        },
       ],
-      type: 'javascript/auto',
+      type: "javascript/auto",
       issuer: {
-        and: [/\.(ts|tsx|js|jsx|md|mdx)$/]
-      }
-    })
+        and: [/\.(ts|tsx|js|jsx|md|mdx)$/],
+      },
+    });
     return config;
-  }
+  },
 };
