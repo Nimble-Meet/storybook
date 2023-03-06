@@ -1,8 +1,8 @@
 /** @jsxImportSource @emotion/react */
 import { jsx, css } from "@emotion/react";
 import { Fragment, PropsWithChildren } from "react";
-import Button from "src/Button/Button";
-import ButtonGroup from "src/ButtonGroup/ButtonGroup";
+import Button from "../Button/Button";
+import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import { useTransition, animated } from "@react-spring/web";
 
 export type DialogProps = {
@@ -49,8 +49,8 @@ const Dialog: React.FC<PropsWithChildren<DialogProps>> = ({
     },
     config: {
       tension: 200,
-      friction: 15
-    }
+      friction: 15,
+    },
   });
 
   return (

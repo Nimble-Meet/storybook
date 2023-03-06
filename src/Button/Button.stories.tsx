@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import Button from "./Button";
-import ButtonGroup from "src/ButtonGroup/ButtonGroup";
-import Icon from "src/Icon/Icon";
+import ButtonGroup from "../ButtonGroup/ButtonGroup";
+import Icon from "../Icon/Icon";
 import { css } from "@emotion/react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
@@ -15,7 +15,7 @@ const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 export const button = Template.bind({});
 
 button.args = {
-  children: "Click", 
+  children: "Click",
 };
 
 button.story = {
