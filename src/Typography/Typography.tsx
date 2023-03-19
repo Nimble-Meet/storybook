@@ -1,7 +1,9 @@
 /** @jsxImportSource @emotion/react */
 import { jsx, css } from "@emotion/react";
 
-export interface TypographyProps extends React.HTMLAttributes<HTMLDivElement> {
+import { PropsWithChildren } from "react";
+
+type Props = {
   /** children element for your typo */
   children?: React.ReactNode;
   /** font-family foro your typo */
@@ -18,7 +20,7 @@ export interface TypographyProps extends React.HTMLAttributes<HTMLDivElement> {
     | "black";
   /** size for your typo */
   size: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
-}
+};
 
 const sizes = {
   xs: css`
@@ -81,7 +83,7 @@ const fonts = {
 };
 
 /** `Typography` component to display texts */
-const Typography: React.FC<TypographyProps> = ({
+const Typography: React.FC<PropsWithChildren<Props>> = ({
   children,
   color,
   font,
