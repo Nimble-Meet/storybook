@@ -1,4 +1,5 @@
 declare module "*.mdx";
+declare module "*.ttf";
 
 declare module "*.svg" {
   import * as React from "react";
