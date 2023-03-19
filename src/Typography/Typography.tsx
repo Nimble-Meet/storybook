@@ -7,9 +7,9 @@ type Props = {
   /** children element for your typo */
   children?: React.ReactNode;
   /** font-family foro your typo */
-  font: "Line_Th" | "Line_Rg" | "Line_Bd";
+  font?: "Line_Th" | "Line_Rg" | "Line_Bd";
   /** color for your typo */
-  color:
+  color?:
     | "primary"
     | "secondary"
     | "grey"
@@ -19,7 +19,7 @@ type Props = {
     | "white"
     | "black";
   /** size for your typo */
-  size: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
+  size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
 };
 
 const sizes = {
@@ -85,9 +85,9 @@ const fonts = {
 /** `Typography` component to display texts */
 const Typography: React.FC<PropsWithChildren<Props>> = ({
   children,
-  color,
-  font,
-  size,
+  color = "black",
+  font = "Line_Rg",
+  size = "sm",
 }) => {
   return (
     <span css={[fonts[font], themes[color], sizes[size]]}>{children}</span>
@@ -96,7 +96,7 @@ const Typography: React.FC<PropsWithChildren<Props>> = ({
 
 Typography.defaultProps = {
   font: "Line_Rg",
-  color: "secondary",
+  color: "black",
   size: "sm",
 };
 
