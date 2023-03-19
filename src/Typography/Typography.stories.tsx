@@ -14,6 +14,7 @@ const Template: ComponentStory<typeof Typography> = (args) => (
 export const Text = Template.bind({});
 
 Text.args = {
-  font: "Line_Rg",
-  color: "black",
+  weight: "md",
+  size: "md",
+  color: "gray700",
 };
