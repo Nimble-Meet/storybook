@@ -111,7 +111,7 @@ type Props = {
     | "yellow800"
     | "yellow900";
   /** size for your typo */
-  size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
+  size?: string;
 };
 
 /** `Typography` component to display texts */
@@ -119,10 +119,20 @@ const Typography: React.FC<PropsWithChildren<Props>> = ({
   children,
   color = "gray900",
   weight = "md",
-  size = "sm",
+  size = "16px",
 }) => {
   return (
-    <span css={[weights[weight], themes[color], sizes[size]]}>{children}</span>
+    <span
+      css={[
+        weights[weight],
+        themes[color],
+        css`
+          font-size: ${size};
+        `,
+      ]}
+    >
+      {children}
+    </span>
   );
 };
 
@@ -465,7 +475,7 @@ const weights = {
 Typography.defaultProps = {
   weight: "md",
   color: "gray900",
-  size: "sm",
+  size: "16px",
 };
 
 export default Typography;
