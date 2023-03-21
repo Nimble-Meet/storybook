@@ -9,10 +9,11 @@ type Props = {
   onClick?: (e?: any) => void;
   /** 버튼의 생김새를 설정합니다. */
   theme?: "primary" | "secondary" | "link" | "dark";
-  size?: "sm" | "md" | "lg";
+  size?: "sm" | "md" | "lg" | "xl";
   disabled?: boolean;
   /** 버튼의 너비를 임의로 설정합니다. */
   width?: string | number;
+  fontSize?: string;
 };
 
 /**
@@ -25,10 +26,11 @@ const Button: React.FC<PropsWithChildren<Props>> = ({
   size = "md",
   disabled = false,
   width,
+  fontSize,
 }) => {
   return (
     <button
-      css={[style, themes[theme], sizes[size], { width }]}
+      css={[style, themes[theme], sizes[size], { width, fontSize }]}
       disabled={disabled}
       onClick={onClick}
     >
