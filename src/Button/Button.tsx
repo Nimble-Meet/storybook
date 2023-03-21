@@ -1,5 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { css, jsx } from "@emotion/react";
+import COLOR from "../assets/color";
 
 import { PropsWithChildren } from "react";
 
@@ -7,8 +8,8 @@ type Props = {
   /** 버튼의 클릭시 발생하는 함수 */
   onClick?: (e?: any) => void;
   /** 버튼의 생김새를 설정합니다. */
-  theme?: "primary" | "secondary" | "tertiary";
-  size?: "small" | "medium" | "big";
+  theme?: "primary" | "secondary" | "link" | "dark";
+  size?: "sm" | "md" | "lg";
   disabled?: boolean;
   /** 버튼의 너비를 임의로 설정합니다. */
   width?: string | number;
@@ -21,7 +22,7 @@ const Button: React.FC<PropsWithChildren<Props>> = ({
   children,
   onClick,
   theme = "primary",
-  size = "medium",
+  size = "md",
   disabled = false,
   width,
 }) => {
@@ -37,20 +38,18 @@ const Button: React.FC<PropsWithChildren<Props>> = ({
 };
 
 const sizes = {
-  small: css`
-    height: 1.75rem;
-    font-size: 0.75rem;
+  sm: css`
+    height: 1.5rem;
     padding: 0 0.875rem;
   `,
-  medium: css`
-    height: 2.5rem;
-    font-size: 1rem;
+  md: css`
+    height: 2rem;
     padding: 0 1rem;
   `,
-  big: css`
-    height: 3rem;
-    font-size: 1.125rem;
+  lg: css`
+    height: 2.5rem;
     padding: 0 1.5rem;
+    border-radius: 2rem;
   `,
 };
 
@@ -72,13 +71,14 @@ const themes = {
     }
   `,
   secondary: css`
-    background: #e9ecef;
-    color: #343a40;
+    background: ${COLOR.gray50};
+    color: ${COLOR.gray900};
     svg {
       fill: #343a40;
     }
     &:hover {
-      background: #f1f3f5;
+      background: ${COLOR.gray900};
+      color: ${COLOR.gray50};
     }
     &:active {
       background: #dee2e6;
@@ -90,22 +90,46 @@ const themes = {
       }
     }
   `,
-  tertiary: css`
-    background: none;
-    color: #20c997;
+  link: css`
+    background: ${COLOR.gray50};
+    color: ${COLOR.black};
     svg {
-      fill: #20c997;
+      fill: ${COLOR.black};
     }
-    &:hover {
-      background: #e6fcf5;
+    &:hover:not(:disabled) {
+      color: ${COLOR.gray50};
+      background-color: ${COLOR.black};
+      border: 1px solid ${COLOR.gray50};
     }
-    &:active {
-      background: #c3fae8;
+    &:active:not(:disabled) {
+      background: ${COLOR.gray800};
     }
     &:disabled {
-      color: #bcd9d0;
+      color: ${COLOR.gray500};
       svg {
-        fill: #bcd9d0;
+        fill: ${COLOR.gray500};
+      }
+    }
+  `,
+  dark: css`
+    background: ${COLOR.black};
+    color: ${COLOR.gray50};
+    border: 1px solid ${COLOR.gray50};
+    svg {
+      fill: ${COLOR.gray50};
+    }
+    &:hover:not(:disabled) {
+      background: ${COLOR.gray50};
+      color: ${COLOR.black};
+    }
+    &:active:not(:disabled) {
+      background: ${COLOR.gray100};
+    }
+    &:disabled {
+      color: ${COLOR.gray700};
+      border: 1px solid ${COLOR.gray700};
+      svg {
+        fill: ${COLOR.gray700};
       }
     }
   `,
@@ -114,6 +138,7 @@ const themes = {
 const style = css`
   display: flex;
   align-items: center;
+  justify-content: center;
   outline: none;
   border: none;
   box-sizing: border-box;
@@ -122,18 +147,11 @@ const style = css`
   padding: 0.5rem 1rem;
   background: #20c997;
   color: white;
-  border-radius: 0.25rem;
+  border-radius: 1rem;
   line-height: 1;
   font-weight: 600;
-  &:focus {
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
-  }
-  &:hover {
-    background: #38d9a9;
-  }
-  &:active {
-    background: #12b886;
-  }
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1);
+
   &:disabled {
     cursor: not-allowed;
   }

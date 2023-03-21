@@ -57,15 +57,15 @@ export const sizes = () => {
     <div css={buttonWrapper}>
       <div>
         <div className="description">Small</div>
-        <Button size="small">BUTTON</Button>
+        <Button size="sm">BUTTON</Button>
       </div>
       <div>
         <div className="description">Medium</div>
-        <Button size="medium">BUTTON</Button>
+        <Button size="md">BUTTON</Button>
       </div>
       <div>
         <div className="description">Big</div>
-        <Button size="big">BUTTON</Button>
+        <Button size="lg">BUTTON</Button>
       </div>
     </div>
   );
@@ -83,7 +83,7 @@ export const disabled = () => {
         </Button>
       </div>
       <div>
-        <Button disabled theme="tertiary">
+        <Button disabled theme="link">
           TERTIARY
         </Button>
       </div>
@@ -108,7 +108,7 @@ export const withIcon = () => {
   return (
     <div>
       <ButtonGroup>
-        <Button size="small">
+        <Button size="sm">
           <Icon icon="heart" />
           LIKE
         </Button>
@@ -116,7 +116,7 @@ export const withIcon = () => {
           <Icon icon="heart" />
           LIKE
         </Button>
-        <Button size="big">
+        <Button size="lg">
           <Icon icon="heart" /> LIKE
         </Button>
       </ButtonGroup>
