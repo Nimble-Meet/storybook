@@ -51,6 +51,11 @@ const sizes = {
     padding: 0 1.5rem;
     border-radius: 2rem;
   `,
+  xl: css`
+    height: 3rem;
+    padding: 0 2rem;
+    border-radius: 2rem;
+  `,
 };
 
 const themes = {
