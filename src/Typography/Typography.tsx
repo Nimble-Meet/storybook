@@ -127,6 +127,7 @@ const Typography: React.FC<PropsWithChildren<Props>> = ({
         themes[color],
         css`
           font-size: ${size};
+          white-space: pre-line;
         `,
       ]}
     >
