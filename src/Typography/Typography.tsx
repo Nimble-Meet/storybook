@@ -4,8 +4,6 @@ import { jsx, css } from "@emotion/react";
 import { PropsWithChildren } from "react";
 
 type Props = {
-  /** children element for your typo */
-  children?: React.ReactNode;
   /** font-family foro your typo */
   weight?: "sm" | "md" | "lg";
   /** color for your typo */
@@ -112,11 +110,12 @@ type Props = {
     | "yellow900";
   /** size for your typo */
   size?: string;
+  value: string;
 };
 
 /** `Typography` component to display texts */
 const Typography: React.FC<PropsWithChildren<Props>> = ({
-  children,
+  value,
   color = "gray900",
   weight = "md",
   size = "16px",
@@ -131,7 +130,7 @@ const Typography: React.FC<PropsWithChildren<Props>> = ({
         `,
       ]}
     >
-      {children}
+      {value}
     </span>
   );
 };
