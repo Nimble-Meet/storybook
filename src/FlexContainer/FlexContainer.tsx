@@ -71,19 +71,19 @@ const flexJustifyStyles = {
 
 const flexAlignStyles = {
   center: css`
-    justify-content: center;
+    align-items: center;
   `,
   start: css`
-    justify-content: flex-start;
+    align-items: flex-start;
   `,
   end: css`
-    justify-content: flex-end;
+    align-items: flex-end;
   `,
   between: css`
-    justify-content: space-between;
+    align-items: space-between;
   `,
   evenly: css`
-    justify-content: space-evenly;
+    align-items: space-evenly;
   `,
 };
 
