@@ -28,12 +28,12 @@ const FlexContainer: React.FC<PropsWithChildren<FlexContainerProps>> = ({
   return (
     <div
       css={[
-        styles,
+        basicStyles,
         css,
         flexJustifyStyles[justifyContent],
         flexDirectionStyles[direction],
         flexAlignStyles[alignItems],
-        { gap, flexBasis: basis, fle3xGrow: grow, flexWrap: wrap },
+        { gap, flexBasis: basis, flexGrow: grow, flexWrap: wrap },
       ]}
     >
       {children}
@@ -41,7 +41,7 @@ const FlexContainer: React.FC<PropsWithChildren<FlexContainerProps>> = ({
   );
 };
 
-const styles = css`
+const basicStyles = css`
   display: flex;
 `;
 
