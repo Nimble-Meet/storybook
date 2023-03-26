@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
+import { css, SerializedStyles } from "@emotion/react";
 import { PropsWithChildren } from "react";
 
 type FlexContainerProps = {
@@ -11,7 +11,7 @@ type FlexContainerProps = {
   basis?: string;
   grow?: number;
   wrap?: "wrap" | "nowrap";
-  css?: any;
+  css?: SerializedStyles;
 };
 
 const FlexContainer: React.FC<PropsWithChildren<FlexContainerProps>> = ({
@@ -29,11 +29,11 @@ const FlexContainer: React.FC<PropsWithChildren<FlexContainerProps>> = ({
     <div
       css={[
         styles,
-        ...css,
+        css,
         flexJustifyStyles[justifyContent],
         flexDirectionStyles[direction],
         flexAlignStyles[alignItems],
-        { gap, flexBasis: basis, flexGrow: grow, flexWrap: wrap },
+        { gap, flexBasis: basis, fle3xGrow: grow, flexWrap: wrap },
       ]}
     >
       {children}
