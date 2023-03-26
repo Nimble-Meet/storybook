@@ -11,7 +11,7 @@ type FlexContainerProps = {
   basis?: string;
   grow?: number;
   wrap?: "wrap" | "nowrap";
-  css?: SerializedStyles;
+  customCss?: SerializedStyles;
 };
 
 const FlexContainer: React.FC<PropsWithChildren<FlexContainerProps>> = ({
@@ -22,14 +22,14 @@ const FlexContainer: React.FC<PropsWithChildren<FlexContainerProps>> = ({
   basis,
   grow,
   wrap,
-  css,
+  customCss,
   children,
 }) => {
   return (
     <div
       css={[
         basicStyles,
-        css,
+        customCss,
         flexJustifyStyles[justifyContent],
         flexDirectionStyles[direction],
         flexAlignStyles[alignItems],
