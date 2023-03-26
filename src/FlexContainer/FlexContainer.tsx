@@ -8,6 +8,9 @@ type FlexContainerProps = {
   justifyContent: "center" | "start" | "end" | "between" | "evenly";
   alignItems: "center" | "start" | "end" | "between" | "evenly";
   gap?: string;
+  basis?: string;
+  grow?: number;
+  wrap?: "wrap" | "nowrap";
 };
 
 const FlexContainer: React.FC<PropsWithChildren<FlexContainerProps>> = ({
@@ -15,21 +18,29 @@ const FlexContainer: React.FC<PropsWithChildren<FlexContainerProps>> = ({
   justifyContent,
   alignItems,
   gap,
+  basis,
+  grow,
+  wrap,
   children,
 }) => {
   return (
     <div
       css={[
+        styles,
         flexJustifyStyles[justifyContent],
         flexDirectionStyles[direction],
         flexAlignStyles[alignItems],
-        { gap },
+        { gap, flexBasis: basis, flexGrow: grow, flexWrap: wrap },
       ]}
     >
       {children}
     </div>
   );
 };
+
+const styles = css`
+  display: flex;
+`;
 
 const flexDirectionStyles = {
   row: css`
