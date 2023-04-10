@@ -1,5 +1,5 @@
-export { default as Button } from "./Button/Button";
-export { default as ButtonGroup } from "./ButtonGroup/ButtonGroup";
+export { default as Button } from "./components/Button/Button";
+export { default as ButtonGroup } from "./components/ButtonGroup/ButtonGroup";
 export { default as Icon } from "./Icon/Icon";
-export { default as Typography } from "./Typography/Typography";
-export { default as FlexContainer } from "./FlexContainer/FlexContainer";
+export { default as Typography } from "./components/Typography/Typography";
+export { default as FlexContainer } from "./components/FlexContainer/FlexContainer";

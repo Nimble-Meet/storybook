@@ -1,6 +1,6 @@
 {
   "name": "nimble-nds",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "module": "dist/index.js",
   "license": "MIT",
   "types": "dist/types/index.d.ts",

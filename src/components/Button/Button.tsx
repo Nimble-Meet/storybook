@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { css, jsx } from "@emotion/react";
-import COLOR from "../assets/color";
+import COLOR from "../../assets/color";
 
 import { PropsWithChildren } from "react";
 
