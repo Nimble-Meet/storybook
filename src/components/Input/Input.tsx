@@ -25,16 +25,12 @@ type Props = {
     | "time"
     | "url"
     | "week";
-  /** 버튼의 클릭시 발생하는 함수 */
   onChange: ChangeEventHandler<HTMLInputElement>;
   value: string;
   id?: string;
-  /** 버튼의 생김새를 설정합니다. */
-  //   theme?: "primary" | "secondary" | "link" | "dark";
   size?: "md" | "lg" | "xl";
   disabled?: boolean;
   placeholder: string;
-  /** 버튼의 너비를 임의로 설정합니다. */
   width?: string | number;
   fontSize?: string;
 };
