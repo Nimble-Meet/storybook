@@ -5,20 +5,14 @@ import COLOR from "../../assets/color";
 import { PropsWithChildren } from "react";
 
 type Props = {
-  /** 버튼의 클릭시 발생하는 함수 */
   onClick?: (e?: any) => void;
-  /** 버튼의 생김새를 설정합니다. */
   theme?: "primary" | "secondary" | "link" | "dark";
   size?: "sm" | "md" | "lg" | "xl";
   disabled?: boolean;
-  /** 버튼의 너비를 임의로 설정합니다. */
   width?: string | number;
   fontSize?: string;
 };
 
-/**
- * `Button` 컴포넌트는 어떤 작업을 트리거할 때 사용합니다.
- */
 const Button: React.FC<PropsWithChildren<Props>> = ({
   children,
   onClick,

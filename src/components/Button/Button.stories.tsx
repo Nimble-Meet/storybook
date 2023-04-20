@@ -1,12 +1,10 @@
 /** @jsxImportSource @emotion/react */
 import Button from "./Button";
-import ButtonGroup from "../ButtonGroup/ButtonGroup";
-import Icon from "../Icon/Icon";
 import { css } from "@emotion/react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 export default {
-  title: "components|Button",
+  title: "Button",
   component: Button,
 } as ComponentMeta<typeof Button>;
 
@@ -100,26 +98,6 @@ export const customSized = () => {
       <div>
         <Button width="100%">FULL WIDTH</Button>
       </div>
-    </div>
-  );
-};
-
-export const withIcon = () => {
-  return (
-    <div>
-      <ButtonGroup>
-        <Button size="sm">
-          <Icon icon="heart" />
-          LIKE
-        </Button>
-        <Button>
-          <Icon icon="heart" />
-          LIKE
-        </Button>
-        <Button size="lg">
-          <Icon icon="heart" /> LIKE
-        </Button>
-      </ButtonGroup>
     </div>
   );
 };
