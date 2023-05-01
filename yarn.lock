@@ -10875,9 +10875,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nimble-nds@workspace:.":
+"nimble-ds@workspace:.":
   version: 0.0.0-use.local
-  resolution: "nimble-nds@workspace:."
+  resolution: "nimble-ds@workspace:."
   dependencies:
     "@babel/core": ^7.20.7
     "@babel/plugin-transform-runtime": ^7.19.6

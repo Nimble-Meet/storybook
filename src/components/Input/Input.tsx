@@ -26,6 +26,7 @@ type Props = {
     | "url"
     | "week";
   onChange: ChangeEventHandler<HTMLInputElement>;
+  onBlur?: ChangeEventHandler<HTMLInputElement>;
   value: string;
   id?: string;
   size?: "md" | "lg" | "xl";
@@ -38,6 +39,7 @@ type Props = {
 const Input: React.FC<PropsWithChildren<Props>> = ({
   type = "text",
   onChange,
+  onBlur,
   value,
   id,
   size = "md",
@@ -54,7 +56,9 @@ const Input: React.FC<PropsWithChildren<Props>> = ({
       id={id}
       disabled={disabled}
       onChange={onChange}
+      onBlur={onBlur}
       placeholder={placeholder}
+      required
     />
   );
 };
