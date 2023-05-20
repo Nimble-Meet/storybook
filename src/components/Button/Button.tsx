@@ -11,7 +11,7 @@ type Props = {
   disabled?: boolean;
   width?: string | number;
   fontSize?: string;
-  ref?: React.Ref<HTMLButtonElement>;
+  ref?: React.Ref<HTMLButtonElement> | null;
 };
 
 const Button: React.FC<PropsWithChildren<Props>> = ({

@@ -34,6 +34,7 @@ type Props = {
   placeholder: string;
   width?: string | number;
   fontSize?: string;
+  ref?: React.Ref<HTMLInputElement> | null;
 };
 
 const Input: React.FC<PropsWithChildren<Props>> = ({
@@ -47,6 +48,7 @@ const Input: React.FC<PropsWithChildren<Props>> = ({
   disabled = false,
   width,
   fontSize,
+  ref,
 }) => {
   return (
     <input
@@ -58,6 +60,7 @@ const Input: React.FC<PropsWithChildren<Props>> = ({
       onChange={onChange}
       onBlur={onBlur}
       placeholder={placeholder}
+      ref={ref}
       required
     />
   );

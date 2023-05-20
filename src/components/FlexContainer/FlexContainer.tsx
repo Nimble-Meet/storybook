@@ -12,7 +12,7 @@ type FlexContainerProps = {
   grow?: number;
   wrap?: "wrap" | "nowrap";
   customCss?: SerializedStyles;
-  ref?: React.Ref<HTMLDivElement>;
+  ref?: React.Ref<HTMLDivElement> | null;
 };
 
 const FlexContainer: React.FC<PropsWithChildren<FlexContainerProps>> = ({
