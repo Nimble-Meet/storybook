@@ -12,6 +12,7 @@ type FlexContainerProps = {
   grow?: number;
   wrap?: "wrap" | "nowrap";
   customCss?: SerializedStyles;
+  ref?: React.Ref<HTMLDivElement>;
 };
 
 const FlexContainer: React.FC<PropsWithChildren<FlexContainerProps>> = ({
@@ -23,6 +24,7 @@ const FlexContainer: React.FC<PropsWithChildren<FlexContainerProps>> = ({
   grow,
   wrap,
   customCss,
+  ref,
   children,
 }) => {
   return (
@@ -35,6 +37,7 @@ const FlexContainer: React.FC<PropsWithChildren<FlexContainerProps>> = ({
         flexAlignStyles[alignItems],
         { gap, flexBasis: basis, flexGrow: grow, flexWrap: wrap },
       ]}
+      ref={ref}
     >
       {children}
     </div>

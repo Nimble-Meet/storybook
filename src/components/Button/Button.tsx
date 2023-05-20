@@ -11,6 +11,7 @@ type Props = {
   disabled?: boolean;
   width?: string | number;
   fontSize?: string;
+  ref?: React.Ref<HTMLButtonElement>;
 };
 
 const Button: React.FC<PropsWithChildren<Props>> = ({
@@ -21,12 +22,14 @@ const Button: React.FC<PropsWithChildren<Props>> = ({
   disabled = false,
   width,
   fontSize,
+  ref,
 }) => {
   return (
     <button
       css={[style, themes[theme], sizes[size], { width, fontSize }]}
       disabled={disabled}
       onClick={onClick}
+      ref={ref}
     >
       {children}
     </button>
