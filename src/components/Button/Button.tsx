@@ -1,8 +1,8 @@
 /** @jsxImportSource @emotion/react */
-import { SerializedStyles, css, jsx } from "@emotion/react";
+import { css } from "@emotion/react";
 import COLOR from "../../assets/color";
 
-import { PropsWithChildren } from "react";
+import React, { PropsWithChildren } from "react";
 
 type Props = {
   onClick?: (e?: any) => void;
@@ -14,27 +14,31 @@ type Props = {
   ref?: React.Ref<HTMLButtonElement> | null;
 };
 
-const Button: React.FC<PropsWithChildren<Props>> = ({
-  children,
-  onClick,
-  theme = "primary",
-  size = "md",
-  disabled = false,
-  width,
-  fontSize,
-  ref,
-}) => {
-  return (
-    <button
-      css={[style, themes[theme], sizes[size], { width, fontSize }]}
-      disabled={disabled}
-      onClick={onClick}
-      ref={ref}
-    >
-      {children}
-    </button>
-  );
-};
+const Button: React.FC<PropsWithChildren<Props>> = React.forwardRef(
+  (
+    {
+      children,
+      onClick,
+      theme = "primary",
+      size = "md",
+      disabled = false,
+      width,
+      fontSize,
+    },
+    ref
+  ) => {
+    return (
+      <button
+        css={[style, themes[theme], sizes[size], { width, fontSize }]}
+        disabled={disabled}
+        onClick={onClick}
+        ref={ref}
+      >
+        {children}
+      </button>
+    );
+  }
+);
 
 const sizes = {
   sm: css`

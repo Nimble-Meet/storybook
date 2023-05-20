@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { css, SerializedStyles } from "@emotion/react";
-import { PropsWithChildren } from "react";
+import React, { PropsWithChildren } from "react";
 
 type FlexContainerProps = {
   children: React.ReactNode;
@@ -15,34 +15,39 @@ type FlexContainerProps = {
   ref?: React.Ref<HTMLDivElement> | null;
 };
 
-const FlexContainer: React.FC<PropsWithChildren<FlexContainerProps>> = ({
-  direction,
-  justifyContent,
-  alignItems,
-  gap,
-  basis,
-  grow,
-  wrap,
-  customCss,
-  ref,
-  children,
-}) => {
-  return (
-    <div
-      css={[
-        basicStyles,
-        ...(Array.isArray(customCss) ? customCss : [customCss]),
-        flexJustifyStyles[justifyContent],
-        flexDirectionStyles[direction],
-        flexAlignStyles[alignItems],
-        { gap, flexBasis: basis, flexGrow: grow, flexWrap: wrap },
-      ]}
-      ref={ref}
-    >
-      {children}
-    </div>
+const FlexContainer: React.FC<PropsWithChildren<FlexContainerProps>> =
+  React.forwardRef(
+    (
+      {
+        direction,
+        justifyContent,
+        alignItems,
+        gap,
+        basis,
+        grow,
+        wrap,
+        customCss,
+        children,
+      },
+      ref
+    ) => {
+      return (
+        <div
+          css={[
+            basicStyles,
+            ...(Array.isArray(customCss) ? customCss : [customCss]),
+            flexJustifyStyles[justifyContent],
+            flexDirectionStyles[direction],
+            flexAlignStyles[alignItems],
+            { gap, flexBasis: basis, flexGrow: grow, flexWrap: wrap },
+          ]}
+          ref={ref}
+        >
+          {children}
+        </div>
+      );
+    }
   );
-};
 
 const basicStyles = css`
   display: flex;
