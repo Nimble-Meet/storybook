@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import { css, jsx } from "@emotion/react";
+import { SerializedStyles, css, jsx } from "@emotion/react";
 import COLOR from "../../assets/color";
 
 import { PropsWithChildren } from "react";
@@ -12,6 +12,7 @@ type Props = {
   width?: string | number;
   fontSize?: string;
   ref?: React.Ref<HTMLButtonElement> | null;
+  customCss?: SerializedStyles;
 };
 
 const Button: React.FC<PropsWithChildren<Props>> = ({
@@ -22,11 +23,12 @@ const Button: React.FC<PropsWithChildren<Props>> = ({
   disabled = false,
   width,
   fontSize,
+  customCss,
   ref,
 }) => {
   return (
     <button
-      css={[style, themes[theme], sizes[size], { width, fontSize }]}
+      css={[style, themes[theme], sizes[size], { width, fontSize }, customCss]}
       disabled={disabled}
       onClick={onClick}
       ref={ref}
