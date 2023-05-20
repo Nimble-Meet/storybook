@@ -3,7 +3,6 @@ import { SerializedStyles, css, jsx } from "@emotion/react";
 import COLOR from "../../assets/color";
 
 import { PropsWithChildren } from "react";
-import { type } from "os";
 
 type Props = {
   onClick?: (e?: any) => void;
@@ -13,8 +12,6 @@ type Props = {
   width?: string | number;
   fontSize?: string;
   ref?: React.Ref<HTMLButtonElement> | null;
-  customCss?: SerializedStyles;
-  type?: "button" | "submit" | "reset";
 };
 
 const Button: React.FC<PropsWithChildren<Props>> = ({
@@ -25,17 +22,14 @@ const Button: React.FC<PropsWithChildren<Props>> = ({
   disabled = false,
   width,
   fontSize,
-  customCss,
   ref,
-  type = "button",
 }) => {
   return (
     <button
-      css={[style, themes[theme], sizes[size], { width, fontSize }, customCss]}
+      css={[style, themes[theme], sizes[size], { width, fontSize }]}
       disabled={disabled}
       onClick={onClick}
       ref={ref}
-      type={type}
     >
       {children}
     </button>
