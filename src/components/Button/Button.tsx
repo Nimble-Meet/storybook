@@ -29,7 +29,7 @@ const Button = ({
   disabled = false,
   width,
   fontSize,
-  round,
+  round = false,
 }: Props) => {
   return (
     <button
