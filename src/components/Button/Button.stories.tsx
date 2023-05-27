@@ -10,16 +10,6 @@ export default {
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
-export const button = Template.bind({});
-
-button.args = {
-  children: "Click",
-};
-
-button.story = {
-  name: "Default",
-};
-
 export const primaryButton = Template.bind({});
 
 primaryButton.args = {
@@ -27,18 +17,25 @@ primaryButton.args = {
   theme: "primary",
 };
 
-export const secondaryButton = Template.bind({});
+export const linkButton = Template.bind({});
 
-secondaryButton.args = {
-  children: "SECONDARY",
-  theme: "secondary",
+linkButton.args = {
+  children: "link",
+  theme: "link",
 };
 
-export const tertiaryButton = Template.bind({});
+export const basicButton = Template.bind({});
 
-tertiaryButton.args = {
-  children: "TERTIARY",
-  theme: "tertiary",
+basicButton.args = {
+  children: "구글 로그인",
+  theme: "basic",
+};
+
+export const darkButton = Template.bind({});
+
+darkButton.args = {
+  children: "dark",
+  theme: "dark",
 };
 
 const buttonWrapper = css`
@@ -54,16 +51,20 @@ export const sizes = () => {
   return (
     <div css={buttonWrapper}>
       <div>
-        <div className="description">Small</div>
+        <div className="description">sm</div>
         <Button size="sm">BUTTON</Button>
       </div>
       <div>
-        <div className="description">Medium</div>
+        <div className="description">md</div>
         <Button size="md">BUTTON</Button>
       </div>
       <div>
-        <div className="description">Big</div>
+        <div className="description">lg</div>
         <Button size="lg">BUTTON</Button>
+      </div>
+      <div>
+        <div className="description">xl</div>
+        <Button size="xl">BUTTON</Button>
       </div>
     </div>
   );
@@ -73,16 +74,21 @@ export const disabled = () => {
   return (
     <div css={buttonWrapper}>
       <div>
-        <Button disabled>PRIMARY</Button>
-      </div>
-      <div>
-        <Button disabled theme="secondary">
-          SECONDARY
+        <Button disabled theme="basic">
+          BASIC
         </Button>
       </div>
       <div>
+        <Button disabled>PRIMARY</Button>
+      </div>
+      <div>
         <Button disabled theme="link">
-          TERTIARY
+          Link
+        </Button>
+      </div>
+      <div>
+        <Button disabled theme="dark">
+          DARK
         </Button>
       </div>
     </div>
