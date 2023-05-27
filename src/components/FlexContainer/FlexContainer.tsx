@@ -4,9 +4,9 @@ import React, { PropsWithChildren } from "react";
 
 type FlexContainerProps = {
   children: React.ReactNode;
-  direction: "row" | "column";
-  justifyContent: "center" | "start" | "end" | "between" | "evenly";
-  alignItems: "center" | "start" | "end" | "between" | "evenly";
+  direction?: "row" | "column";
+  justifyContent?: "center" | "start" | "end" | "between" | "evenly";
+  alignItems?: "center" | "start" | "end" | "between" | "evenly";
   gap?: string;
   basis?: string;
   grow?: number;
@@ -19,9 +19,9 @@ const FlexContainer: React.FC<PropsWithChildren<FlexContainerProps>> =
   React.forwardRef(
     (
       {
-        direction,
-        justifyContent,
-        alignItems,
+        direction = "row",
+        justifyContent = "start",
+        alignItems = "start",
         gap,
         basis,
         grow,
