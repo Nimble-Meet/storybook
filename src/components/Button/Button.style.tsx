@@ -36,10 +36,10 @@ export const themes = {
       fill: ${COLOR.gray900};
     }
 
-    &:hover {
+    &:hover:not(:disabled) {
       background: ${COLOR.gray50};
     }
-    &:active {
+    &:active:not(:disabled) {
       background: ${COLOR.gray50};
       border: 1px solid ${COLOR.gray500};
     }
@@ -54,10 +54,10 @@ export const themes = {
     svg {
       fill: ${COLOR.white};
     }
-    &:hover {
+    &:hover:not(:disabled) {
       background: ${COLOR.blue700};
     }
-    &:active {
+    &:active:not(:disabled) {
       background: ${COLOR.blue800};
     }
     &:disabled {
