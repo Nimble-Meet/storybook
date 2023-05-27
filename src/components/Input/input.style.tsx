@@ -21,8 +21,10 @@ export const defaultStyle = css`
   border-radius: 1rem;
   line-height: 1;
   font-weight: 500;
-  border: 1px solid ${COLOR.gray700};
-  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1);
+
+  color: ${COLOR.gray900};
+  border: 1px solid ${COLOR.gray300};
+  background: ${COLOR.white};
 
   &:disabled {
     cursor: not-allowed;
@@ -39,7 +41,7 @@ export const invalidStyle = css`
     }
   }
 
-  border: 1px solid ${COLOR.red600};
+  border: 1px solid ${COLOR.red600} !important;
 
   animation: vibration 0.1s linear;
 `;
