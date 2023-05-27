@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import React from "react";
+import React, { PropsWithChildren } from "react";
 
 import { defaultStyle, sizes, themes } from "./Button.style";
 
@@ -11,7 +11,6 @@ const RADIUS_BY_SIZE = {
 };
 
 interface Props {
-  children: React.ReactNode;
   onClick?: (e?: any) => void;
   theme?: "primary" | "link" | "dark" | "basic";
   size?: "sm" | "md" | "lg" | "xl";
@@ -21,7 +20,7 @@ interface Props {
   round?: boolean;
 }
 
-const Button = ({
+const Button: React.FC<PropsWithChildren<Props>> = ({
   children,
   onClick,
   theme = "primary",
@@ -30,7 +29,7 @@ const Button = ({
   width,
   fontSize,
   round = false,
-}: Props) => {
+}) => {
   return (
     <button
       css={[
