@@ -1,7 +1,16 @@
 /** @jsxImportSource @emotion/react */
-import { css, jsx } from "@emotion/react";
-
 import { ChangeEventHandler, PropsWithChildren } from "react";
+
+import Typography from "../Typography/Typography";
+import FlexContainer from "../FlexContainer/FlexContainer";
+
+import { defaultStyle, sizes, invalidStyle } from "./input.style";
+
+const RADIUS_BY_SIZE = {
+  md: "1rem",
+  lg: "1.5rem",
+  xl: "2rem",
+};
 
 type Props = {
   type?:
@@ -28,13 +37,16 @@ type Props = {
   onChange: ChangeEventHandler<HTMLInputElement>;
   onBlur?: ChangeEventHandler<HTMLInputElement>;
   value: string;
+  placeholder: string;
   id?: string;
   size?: "md" | "lg" | "xl";
   disabled?: boolean;
-  placeholder: string;
   width?: string | number;
   fontSize?: string;
   ref?: React.Ref<HTMLInputElement> | null;
+  round?: boolean;
+  invalid?: boolean;
+  invalidMessage?: string;
 };
 
 const Input: React.FC<PropsWithChildren<Props>> = ({
@@ -49,51 +61,38 @@ const Input: React.FC<PropsWithChildren<Props>> = ({
   width,
   fontSize,
   ref,
+  round = false,
+  invalid = false,
+  invalidMessage,
 }) => {
   return (
-    <input
-      type={type}
-      css={[style, sizes[size], { width, fontSize }]}
-      value={value}
-      id={id}
-      disabled={disabled}
-      onChange={onChange}
-      onBlur={onBlur}
-      placeholder={placeholder}
-      ref={ref}
-      required
-    />
+    <FlexContainer direction="column" gap="0.5rem">
+      <input
+        type={type}
+        css={[
+          defaultStyle,
+          sizes[size],
+          {
+            width,
+            fontSize,
+            borderRadius: round ? RADIUS_BY_SIZE[size] : "0.5rem",
+          },
+          invalid && invalidStyle,
+        ].filter(Boolean)}
+        value={value}
+        id={id}
+        disabled={disabled}
+        onChange={onChange}
+        onBlur={onBlur}
+        placeholder={placeholder}
+        ref={ref}
+        required
+      />
+      {invalid && (
+        <Typography value={invalidMessage || ""} size="12px" color="red600" />
+      )}
+    </FlexContainer>
   );
 };
-
-const sizes = {
-  md: css`
-    height: 2rem;
-  `,
-  lg: css`
-    height: 2.5rem;
-    border-radius: 1.5rem;
-  `,
-  xl: css`
-    height: 3rem;
-    border-radius: 2rem;
-  `,
-};
-
-const style = css`
-  box-sizing: border-box;
-  height: 2rem;
-  font-size: 0.875rem;
-  padding: 0.5rem 1rem;
-  border-radius: 1rem;
-  line-height: 1;
-  font-weight: 500;
-  border: 1px solid gray;
-  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1);
-
-  &:disabled {
-    cursor: not-allowed;
-  }
-`;
 
 export default Input;
