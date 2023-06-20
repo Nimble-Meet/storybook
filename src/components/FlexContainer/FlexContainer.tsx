@@ -5,8 +5,8 @@ import React, { PropsWithChildren } from "react";
 type FlexContainerProps = {
   children: React.ReactNode;
   direction?: "row" | "column";
-  justifyContent?: "center" | "start" | "end" | "between" | "evenly";
-  alignItems?: "center" | "start" | "end" | "between" | "evenly";
+  justifyContent?: "center" | "start" | "end" | "between" | "evenly" | "normal";
+  alignItems?: "center" | "start" | "end" | "between" | "evenly" | "normal";
   gap?: string;
   basis?: string;
   grow?: number;
@@ -20,8 +20,8 @@ const FlexContainer: React.FC<PropsWithChildren<FlexContainerProps>> =
     (
       {
         direction = "row",
-        justifyContent = "start",
-        alignItems = "start",
+        justifyContent = "normal",
+        alignItems = "normal",
         gap,
         basis,
         grow,
@@ -78,6 +78,9 @@ const flexJustifyStyles = {
   evenly: css`
     justify-content: space-evenly;
   `,
+  normal: css`
+    justify-content: normal;
+  `,
 };
 
 const flexAlignStyles = {
@@ -95,6 +98,9 @@ const flexAlignStyles = {
   `,
   evenly: css`
     align-items: space-evenly;
+  `,
+  normal: css`
+    align-items: normal;
   `,
 };
 
