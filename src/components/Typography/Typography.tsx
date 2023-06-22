@@ -3,9 +3,9 @@ import { css } from "@emotion/react";
 
 import { PropsWithChildren } from "react";
 
-import type { Props } from "./Typography.type";
-
 import { FONT_WEIGHT, FONT_COLOR } from "./Typography.constant";
+
+import type { Props } from "./Typography.type";
 
 const Typography: React.FC<PropsWithChildren<Props>> = ({
   value,
