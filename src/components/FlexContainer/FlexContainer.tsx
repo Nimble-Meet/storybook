@@ -12,6 +12,8 @@ import type { Props } from "./FlexContainer.type";
 const FlexContainer: React.FC<PropsWithChildren<Props>> = React.forwardRef(
   (
     {
+      children,
+      // optional props
       direction = "row",
       justifyContent = "normal",
       alignItems = "normal",
@@ -20,7 +22,6 @@ const FlexContainer: React.FC<PropsWithChildren<Props>> = React.forwardRef(
       grow,
       wrap,
       customCss,
-      children,
     },
     ref
   ) => {

@@ -1,11 +1,10 @@
 /** @jsxImportSource @emotion/react */
-import {
-  ChangeEventHandler,
-  KeyboardEventHandler,
-  PropsWithChildren,
-} from "react";
+import { ChangeEventHandler, KeyboardEventHandler } from "react";
 
 export interface Props {
+  value: string;
+  placeholder: string;
+  onChange: ChangeEventHandler<HTMLInputElement>;
   type?:
     | "button"
     | "checkbox"
@@ -27,11 +26,8 @@ export interface Props {
     | "time"
     | "url"
     | "week";
-  onChange: ChangeEventHandler<HTMLInputElement>;
   onBlur?: ChangeEventHandler<HTMLInputElement>;
   onKeyDown?: KeyboardEventHandler<HTMLInputElement>;
-  value: string;
-  placeholder: string;
   id?: string;
   size?: "md" | "lg" | "xl";
   disabled?: boolean;

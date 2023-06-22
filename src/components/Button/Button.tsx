@@ -9,13 +9,14 @@ import type { Props } from "./Button.type";
 
 const Button: React.FC<PropsWithChildren<Props>> = ({
   children,
-  onClick,
+  // optional props
+  width,
+  fontSize,
   color = "primary",
   size = "md",
   disabled = false,
-  width,
-  fontSize,
   round = false,
+  onClick,
 }) => {
   return (
     <button

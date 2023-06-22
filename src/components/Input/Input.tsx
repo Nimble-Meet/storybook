@@ -16,21 +16,22 @@ import {
 import type { Props } from "./Input.type";
 
 const Input: React.FC<PropsWithChildren<Props>> = ({
-  type = "text",
-  onChange,
-  onKeyDown,
-  onBlur,
   value,
-  id,
-  size = "md",
   placeholder = "placeholder",
+  onChange,
+  // optional props
+  type = "text",
+  size = "md",
   disabled = false,
-  width,
-  fontSize,
-  ref,
   round = false,
   invalid = false,
   invalidMessage = "",
+  id,
+  width,
+  fontSize,
+  ref,
+  onKeyDown,
+  onBlur,
 }) => {
   return (
     <FlexContainer direction="column" gap="0.5rem">

@@ -9,6 +9,7 @@ import type { Props } from "./Typography.type";
 
 const Typography: React.FC<PropsWithChildren<Props>> = ({
   value,
+  // optional props
   color = "gray900",
   weight = "md",
   size = "16px",

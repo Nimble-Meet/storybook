@@ -1,9 +1,9 @@
 export interface Props {
-  onClick?: (e?: any) => void;
+  width?: string | number;
+  fontSize?: string;
   color?: "primary" | "link" | "dark" | "basic";
   size?: "sm" | "md" | "lg" | "xl";
   disabled?: boolean;
-  width?: string | number;
-  fontSize?: string;
   round?: boolean;
+  onClick?: (e?: any) => void;
 }
