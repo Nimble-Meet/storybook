@@ -74,7 +74,7 @@ export const disabled = () => {
   return (
     <div css={buttonWrapper}>
       <div>
-        <Button disabled theme="basic">
+        <Button disabled color="basic">
           BASIC
         </Button>
       </div>
@@ -82,12 +82,12 @@ export const disabled = () => {
         <Button disabled>PRIMARY</Button>
       </div>
       <div>
-        <Button disabled theme="link">
+        <Button disabled color="link">
           Link
         </Button>
       </div>
       <div>
-        <Button disabled theme="dark">
+        <Button disabled color="dark">
           DARK
         </Button>
       </div>

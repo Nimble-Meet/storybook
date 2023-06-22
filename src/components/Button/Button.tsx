@@ -1,29 +1,16 @@
 /** @jsxImportSource @emotion/react */
 import React, { PropsWithChildren } from "react";
 
-import { defaultStyle, sizes, themes } from "./Button.style";
+import { DefaultStyle, ButtonSizes, ButtonColors } from "./Button.style";
 
-const RADIUS_BY_SIZE = {
-  sm: "1rem",
-  md: "1rem",
-  lg: "2rem",
-  xl: "2rem",
-};
+import { RADIUS_BY_SIZE, BASIC_BUTTON_RADIUS } from "./Button.constant";
 
-interface Props {
-  onClick?: (e?: any) => void;
-  theme?: "primary" | "link" | "dark" | "basic";
-  size?: "sm" | "md" | "lg" | "xl";
-  disabled?: boolean;
-  width?: string | number;
-  fontSize?: string;
-  round?: boolean;
-}
+import type { Props } from "./Button.type";
 
 const Button: React.FC<PropsWithChildren<Props>> = ({
   children,
   onClick,
-  theme = "primary",
+  color = "primary",
   size = "md",
   disabled = false,
   width,
@@ -33,13 +20,13 @@ const Button: React.FC<PropsWithChildren<Props>> = ({
   return (
     <button
       css={[
-        defaultStyle,
-        themes[theme],
-        sizes[size],
+        DefaultStyle,
+        ButtonColors[color],
+        ButtonSizes[size],
         {
           width,
           fontSize,
-          borderRadius: round ? RADIUS_BY_SIZE[size] : "0.5rem",
+          borderRadius: round ? RADIUS_BY_SIZE[size] : BASIC_BUTTON_RADIUS,
         },
       ]}
       disabled={disabled}
