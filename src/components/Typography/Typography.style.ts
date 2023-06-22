@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
 
-export const FONT_COLOR = {
+export const FontColor = {
   gray50: css`
     color: #f7f7fa;
   `,
@@ -303,7 +303,7 @@ export const FONT_COLOR = {
   `,
 };
 
-export const FONT_WEIGHT = {
+export const FontWeight = {
   sm: css`
     font-family: "Line_Th";
   `,
