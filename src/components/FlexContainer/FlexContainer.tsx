@@ -2,10 +2,10 @@
 import React, { PropsWithChildren } from "react";
 
 import {
-  basicStyles,
-  flexDirectionStyles,
-  flexJustifyStyles,
-  flexAlignStyles,
+  BasicStyles,
+  FlexDirection,
+  FlexJustify,
+  FlexAlign,
 } from "./FlexContainer.style";
 import type { Props } from "./FlexContainer.type";
 
@@ -27,11 +27,11 @@ const FlexContainer: React.FC<PropsWithChildren<Props>> = React.forwardRef(
     return (
       <div
         css={[
-          basicStyles,
+          BasicStyles,
           ...(Array.isArray(customCss) ? customCss : [customCss]),
-          flexDirectionStyles[direction],
-          flexJustifyStyles[justifyContent],
-          flexAlignStyles[alignItems],
+          FlexDirection[direction],
+          FlexJustify[justifyContent],
+          FlexAlign[alignItems],
           { gap, flexBasis: basis, flexGrow: grow, flexWrap: wrap },
         ]}
         ref={ref}

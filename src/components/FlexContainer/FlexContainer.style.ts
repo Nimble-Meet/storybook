@@ -1,10 +1,10 @@
 import { css } from "@emotion/react";
 
-export const basicStyles = css`
+export const BasicStyles = css`
   display: flex;
 `;
 
-export const flexDirectionStyles = {
+export const FlexDirection = {
   row: css`
     flex-direction: row;
   `,
@@ -13,7 +13,7 @@ export const flexDirectionStyles = {
   `,
 };
 
-export const flexJustifyStyles = {
+export const FlexJustify = {
   center: css`
     justify-content: center;
   `,
@@ -34,7 +34,7 @@ export const flexJustifyStyles = {
   `,
 };
 
-export const flexAlignStyles = {
+export const FlexAlign = {
   center: css`
     align-items: center;
   `,
