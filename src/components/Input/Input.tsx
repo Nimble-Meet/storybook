@@ -4,7 +4,7 @@ import { PropsWithChildren } from "react";
 import Typography from "../Typography/Typography";
 import FlexContainer from "../FlexContainer/FlexContainer";
 
-import { defaultStyle, sizes, invalidStyle } from "./input.style";
+import { DefaultStyle, InputSize, InvalidAnimation } from "./input.style";
 
 import {
   RADIUS_BY_SIZE,
@@ -37,14 +37,14 @@ const Input: React.FC<PropsWithChildren<Props>> = ({
       <input
         type={type}
         css={[
-          defaultStyle,
-          sizes[size],
+          DefaultStyle,
+          InputSize[size],
           {
             width,
             fontSize,
             borderRadius: round ? RADIUS_BY_SIZE[size] : BASIC_INPUT_RADIUS,
           },
-          invalid && invalidStyle,
+          invalid && InvalidAnimation,
         ].filter(Boolean)}
         value={value}
         id={id}
