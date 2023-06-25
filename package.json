@@ -4,7 +4,6 @@
   "module": "dist/index.js",
   "license": "MIT",
   "types": "dist/types/index.d.ts",
-  "type": "module",
   "files": [
     "/dist",
     "/src"
@@ -63,6 +62,7 @@
     "@emotion/styled": "^11.10.6",
     "@types/node": "^18.15.3",
     "babel-helpers": "^6.24.1",
-    "emotion-theming": "^11.0.0"
+    "emotion-theming": "^11.0.0",
+    "react-icons": "^4.10.1"
   }
 }
