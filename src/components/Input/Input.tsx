@@ -1,95 +1,68 @@
 /** @jsxImportSource @emotion/react */
-import { ChangeEventHandler, PropsWithChildren } from "react";
+import { PropsWithChildren } from "react";
 
 import Typography from "../Typography/Typography";
 import FlexContainer from "../FlexContainer/FlexContainer";
 
-import { defaultStyle, sizes, invalidStyle } from "./input.style";
+import { DefaultStyle, InputSize, InvalidAnimation } from "./input.style";
 
-const RADIUS_BY_SIZE = {
-  md: "1rem",
-  lg: "1.5rem",
-  xl: "2rem",
-};
+import {
+  RADIUS_BY_SIZE,
+  BASIC_INPUT_RADIUS,
+  INVALID_TEXT_SIZE,
+  INVALID_TEXT_COLOR,
+} from "./Input.constant";
 
-type Props = {
-  type?:
-    | "button"
-    | "checkbox"
-    | "date"
-    | "email"
-    | "file"
-    | "hidden"
-    | "image"
-    | "month"
-    | "number"
-    | "password"
-    | "radio"
-    | "range"
-    | "reset"
-    | "search"
-    | "submit"
-    | "tel"
-    | "text"
-    | "time"
-    | "url"
-    | "week";
-  onChange: ChangeEventHandler<HTMLInputElement>;
-  onBlur?: ChangeEventHandler<HTMLInputElement>;
-  value: string;
-  placeholder: string;
-  id?: string;
-  size?: "md" | "lg" | "xl";
-  disabled?: boolean;
-  width?: string | number;
-  fontSize?: string;
-  ref?: React.Ref<HTMLInputElement> | null;
-  round?: boolean;
-  invalid?: boolean;
-  invalidMessage?: string;
-};
+import type { Props } from "./Input.type";
 
 const Input: React.FC<PropsWithChildren<Props>> = ({
-  type = "text",
-  onChange,
-  onBlur,
   value,
-  id,
-  size = "md",
   placeholder = "placeholder",
+  onChange,
+  // optional props
+  type = "text",
+  size = "md",
   disabled = false,
+  round = false,
+  invalid = false,
+  invalidMessage = "",
+  id,
   width,
   fontSize,
   ref,
-  round = false,
-  invalid = false,
-  invalidMessage,
+  onKeyDown,
+  onBlur,
 }) => {
   return (
     <FlexContainer direction="column" gap="0.5rem">
       <input
         type={type}
         css={[
-          defaultStyle,
-          sizes[size],
+          DefaultStyle,
+          InputSize[size],
           {
             width,
             fontSize,
-            borderRadius: round ? RADIUS_BY_SIZE[size] : "0.5rem",
+            borderRadius: round ? RADIUS_BY_SIZE[size] : BASIC_INPUT_RADIUS,
           },
-          invalid && invalidStyle,
+          invalid && InvalidAnimation,
         ].filter(Boolean)}
         value={value}
         id={id}
         disabled={disabled}
         onChange={onChange}
         onBlur={onBlur}
+        onKeyDown={onKeyDown}
         placeholder={placeholder}
         ref={ref}
         required
       />
       {invalid && (
-        <Typography value={invalidMessage || ""} size="12px" color="red600" />
+        <Typography
+          value={invalidMessage}
+          size={INVALID_TEXT_SIZE}
+          color={INVALID_TEXT_COLOR}
+        />
       )}
     </FlexContainer>
   );

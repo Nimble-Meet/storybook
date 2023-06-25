@@ -2,10 +2,7 @@
 
 import { PropsWithChildren } from "react";
 
-type Props = {
-  htmlFor: string;
-  children: React.ReactNode | string;
-};
+import type { Props } from "./Lable.type";
 
 const Label: React.FC<PropsWithChildren<Props>> = ({ htmlFor, children }) => {
   return <label htmlFor={htmlFor}>{children}</label>;

@@ -1,19 +1,7 @@
-import { css, jsx } from "@emotion/react";
+import { css } from "@emotion/react";
 import COLOR from "../../assets/color";
 
-export const sizes = {
-  md: css`
-    height: 2rem;
-  `,
-  lg: css`
-    height: 2.5rem;
-  `,
-  xl: css`
-    height: 3rem;
-  `,
-};
-
-export const defaultStyle = css`
+export const DefaultStyle = css`
   box-sizing: border-box;
   height: 2rem;
   font-size: 0.875rem;
@@ -31,7 +19,19 @@ export const defaultStyle = css`
   }
 `;
 
-export const invalidStyle = css`
+export const InputSize = {
+  md: css`
+    height: 2rem;
+  `,
+  lg: css`
+    height: 2.5rem;
+  `,
+  xl: css`
+    height: 3rem;
+  `,
+};
+
+export const InvalidAnimation = css`
   @keyframes vibration {
     from {
       transform: rotate(0.5deg);

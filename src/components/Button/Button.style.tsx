@@ -4,7 +4,7 @@ import { css } from "@emotion/react";
 
 import COLOR from "../../assets/color";
 
-export const sizes = {
+export const ButtonSizes = {
   sm: css`
     height: 1.5rem;
     padding: 0 0.875rem;
@@ -25,7 +25,7 @@ export const sizes = {
   `,
 };
 
-export const themes = {
+export const ButtonColors = {
   basic: css`
     background: ${COLOR.white};
     color: ${COLOR.gray900};
@@ -109,7 +109,7 @@ export const themes = {
   `,
 };
 
-export const defaultStyle = css`
+export const DefaultStyle = css`
   display: flex;
   align-items: center;
   justify-content: center;
