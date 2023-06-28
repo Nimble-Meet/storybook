@@ -10,7 +10,6 @@ const extensions = [".js", ".jsx", ".ts", ".tsx"]; // 어떤 확장자를 처리
 
 export default {
   input: "./src/index.ts",
-
   output: [
     {
       file: "dist/index.js",
