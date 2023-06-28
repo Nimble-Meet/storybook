@@ -10,6 +10,7 @@ import type { Props } from "./Button.type";
 const Button: React.FC<PropsWithChildren<Props>> = ({
   children,
   // optional props
+  type,
   width,
   fontSize,
   color = "primary",
@@ -30,6 +31,7 @@ const Button: React.FC<PropsWithChildren<Props>> = ({
           borderRadius: round ? RADIUS_BY_SIZE[size] : BASIC_BUTTON_RADIUS,
         },
       ]}
+      type={type}
       disabled={disabled}
       onClick={onClick}
     >

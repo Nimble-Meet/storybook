@@ -1,4 +1,5 @@
 export interface Props {
+  type?: "button" | "submit" | "reset";
   width?: string | number;
   fontSize?: string;
   color?: "primary" | "link" | "dark" | "basic";
