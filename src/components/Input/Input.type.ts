@@ -5,6 +5,7 @@ export interface Props {
   value: string;
   placeholder: string;
   onChange: ChangeEventHandler<HTMLInputElement>;
+  name?: string;
   type?:
     | "button"
     | "checkbox"

@@ -20,6 +20,7 @@ const Input: React.FC<PropsWithChildren<Props>> = ({
   placeholder = "placeholder",
   onChange,
   // optional props
+  name,
   type = "text",
   size = "md",
   disabled = false,
@@ -47,6 +48,7 @@ const Input: React.FC<PropsWithChildren<Props>> = ({
           },
           invalid && InvalidAnimation,
         ].filter(Boolean)}
+        name={name}
         value={value}
         id={id}
         disabled={disabled}
