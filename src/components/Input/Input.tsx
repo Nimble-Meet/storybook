@@ -16,10 +16,10 @@ import {
 import type { Props } from "./Input.type";
 
 const Input: React.FC<PropsWithChildren<Props>> = ({
-  value,
   placeholder = "placeholder",
   onChange,
   // optional props
+  value, // react-hook-form에선 value를 사용하지 않아 optional로 처리
   name,
   type = "text",
   size = "md",

@@ -2,9 +2,9 @@
 import { ChangeEventHandler, KeyboardEventHandler } from "react";
 
 export interface Props {
-  value: string;
   placeholder: string;
   onChange: ChangeEventHandler<HTMLInputElement>;
+  value?: string; // react-hook-form에선 value를 사용하지 않아 optional로 처리
   name?: string;
   type?:
     | "button"
