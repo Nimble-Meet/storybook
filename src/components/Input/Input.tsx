@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import { PropsWithChildren } from "react";
+import { PropsWithChildren, forwardRef } from "react";
 
 import Typography from "../Typography/Typography";
 import FlexContainer from "../FlexContainer/FlexContainer";
@@ -15,25 +15,30 @@ import {
 
 import type { Props } from "./Input.type";
 
-const Input: React.FC<PropsWithChildren<Props>> = ({
-  placeholder = "placeholder",
-  onChange,
-  // optional props
-  value, // react-hook-form에선 value를 사용하지 않아 optional로 처리
-  name,
-  type = "text",
-  size = "md",
-  disabled = false,
-  round = false,
-  invalid = false,
-  invalidMessage = "",
-  id,
-  width,
-  fontSize,
-  ref,
-  onKeyDown,
-  onBlur,
-}) => {
+const Input: React.ForwardRefRenderFunction<
+  HTMLInputElement,
+  PropsWithChildren<Props>
+> = (
+  {
+    placeholder = "placeholder",
+    onChange,
+    // optional props
+    value, // react-hook-form에선 value를 사용하지 않아 optional로 처리
+    name,
+    type = "text",
+    size = "md",
+    disabled = false,
+    round = false,
+    invalid = false,
+    invalidMessage = "",
+    id,
+    width,
+    fontSize,
+    onKeyDown,
+    onBlur,
+  },
+  ref
+) => {
   return (
     <FlexContainer direction="column" gap="0.5rem">
       <input
@@ -70,4 +75,4 @@ const Input: React.FC<PropsWithChildren<Props>> = ({
   );
 };
 
-export default Input;
+export default forwardRef(Input);
