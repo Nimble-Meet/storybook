@@ -37,15 +37,13 @@ export const DefaultStyle = css`
   @keyframes modalFadeIn {
     0% {
       opacity: 0;
-      transform: scale(0.98);
     }
     100% {
       opacity: 1;
-      transform: scale(1);
     }
   }
 
-  animation: modalFadeIn 0.2s ease-in-out;
+  animation: modalFadeIn 0.3s ease-in-out;
 `;
 
 export const DimStyle = css`
