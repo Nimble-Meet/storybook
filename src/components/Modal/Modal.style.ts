@@ -28,10 +28,24 @@ export const DefaultStyle = css`
   z-index: ${ZIndex};
   overflow: hidden;
   width: 500px;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   background-color: white;
   transform: translate(-50%, -50%);
-  box-shadow: 0 0 0.15rem 0.15rem rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.04),
+    0px 8px 12px rgba(36, 42, 48, 0.11);
+
+  @keyframes modalFadeIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.98);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  animation: modalFadeIn 0.2s ease-in-out;
 `;
 
 export const DimStyle = css`
@@ -41,5 +55,5 @@ export const DimStyle = css`
   z-index: ${ZIndex - 3};
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.15);
+  background-color: rgba(240, 240, 240, 0.85);
 `;
