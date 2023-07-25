@@ -1,5 +1,4 @@
 /** @jsxImportSource @emotion/react */
-import COLOR from "../../assets/color";
 import { css } from "@emotion/react";
 
 const ZIndex = 1000;
@@ -12,11 +11,8 @@ export const HeaderStyle = css`
 `;
 
 export const BodyStyle = css`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 150px;
-  border-bottom: 1px solid ${COLOR.gray300};
+  padding: 0.5rem 2.5rem;
+  min-height: 8rem; // 128px
 `;
 
 export const FooterStyle = css`
@@ -35,5 +31,15 @@ export const DefaultStyle = css`
   border-radius: 0.5rem;
   background-color: white;
   transform: translate(-50%, -50%);
-  box-shadow: 0 0 0.5rem 0.5rem rgba(0, 0, 0, 0.01);
+  box-shadow: 0 0 0.15rem 0.15rem rgba(0, 0, 0, 0.05);
+`;
+
+export const DimStyle = css`
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: ${ZIndex - 3};
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.15);
 `;
