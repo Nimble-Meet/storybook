@@ -13,12 +13,18 @@ const Typography: React.FC<PropsWithChildren<Props>> = ({
   color = "gray900",
   weight = "md",
   size = "16px",
+  wordBreak = false,
+  preLine = false,
 }) => {
   return (
     <span
       css={[
         FontWeight[weight],
         FontColor[color],
+        {
+          wordBreak: wordBreak ? "keep-all" : "break-all",
+          whiteSpace: preLine ? "pre-line" : "normal",
+        },
         css`
           font-size: ${size};
           white-space: pre-line;

@@ -103,4 +103,6 @@ export interface Props {
     | "yellow800"
     | "yellow900";
   size?: string;
+  wordBreak?: boolean;
+  preLine?: boolean;
 }
